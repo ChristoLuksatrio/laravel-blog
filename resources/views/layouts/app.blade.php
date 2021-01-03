@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Postable</title>
 </head>
-<body class='bg-gray-100'>
-    <nav class='p-6 bg-white flex justify-between'>
+<body class='bg-gray-200'>
+    <nav class='p-6 bg-white flex justify-between mb-6'>
         <ul class='flex items-center'>
             <li>
                 <a href="" class='p-3'>Home</a>

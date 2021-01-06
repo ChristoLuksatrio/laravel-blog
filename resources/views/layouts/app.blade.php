@@ -21,18 +21,21 @@
             </li>
         </ul>
         <ul class='flex items-center'>
-            <li>
-                <a href="" class='p-3'>Christo Luksatrio</a>
-            </li>
-            <li>
-                <a href="" class='p-3'>Login</a>
-            </li>
-            <li>
-                <a href="" class='p-3'>Register</a>
-            </li>
-            <li>
-                <a href="" class='p-3'>Logout</a>
-            </li>
+            @if(auth()->user())
+                <li>
+                    <a href="" class='p-3'>Christo Luksatrio</a>
+                </li>
+                <li>
+                    <a href="" class='p-3'>Logout</a>
+                </li>
+            @else
+                <li>
+                    <a href="" class='p-3'>Login</a>
+                </li>
+                <li>
+                    <a href="" class='p-3'>Register</a>
+                </li>
+            @endif
         </ul>
     </nav>
     @yield('content')

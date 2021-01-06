@@ -12,8 +12,17 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $this->validate($request, [
+            'email' => 'required|email|max:255',
+            'password' => 'required|confirmed'
+        ]);
 
+        if (!auth()->attempt($request->only('email', 'password'))) {
+            return back()->with('status', 'Invalid login credentials');
+        }
+
+        return redirect()->route('dashboard');
     }
 }

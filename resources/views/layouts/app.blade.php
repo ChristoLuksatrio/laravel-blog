@@ -26,11 +26,10 @@
                     <a href="" class='p-3'>Christo Luksatrio</a>
                 </li>
                 <li>
-                    <a href="{{ route('logout') }}">Logout</a>
-                    {{-- <form action="{{ route('logout') }}" method="post">
+                    <form action="{{ route('logout') }}" method="post">
                         @csrf
                         <button type="submit" class='p-3'>Logout</button>
-                    </form> --}}
+                    </form>
                 </li>
             @endauth
 

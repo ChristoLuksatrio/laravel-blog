@@ -33,7 +33,7 @@
                             {{ $post->body }}
                         </p>
 
-                        @auth
+                        @can('delete', $post)
                             <div>
                                 <form action="{{ route('posts.destroy', $post) }}" method="POST">
                                     @csrf
@@ -41,7 +41,7 @@
                                     <button type="submit" class="text-blue-500">Delete</button>
                                 </form>
                             </div>
-                        @endauth
+                        @endcan
 
                         <div class="flex items-center">
                             @auth

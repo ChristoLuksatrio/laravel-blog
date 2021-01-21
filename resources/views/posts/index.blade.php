@@ -33,19 +33,31 @@
                             {{ $post->body }}
                         </p>
 
+                        @auth
+                            <div>
+                                <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-blue-500">Delete</button>
+                                </form>
+                            </div>
+                        @endauth
+
                         <div class="flex items-center">
-                            @if(!$post->likedBy(auth()->user()))
+                            @auth
+                                @if(!$post->likedBy(auth()->user()))
                                 <form action="{{ route('posts.likes', $post->id) }}" method="POST" class="mr-1">
                                     @csrf
                                     <button type="submit" class="text-blue-500">Like</button>
                                 </form>
-                            @else
+                                @else
                                 <form action="{{ route('posts.likes', $post->id) }}" method="POST" class="mr-1">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-blue-500">Unlike</button>
                                 </form>
-                            @endif
+                                @endif
+                            @endauth
 
                             <span>{{ $post->likes->count() }} {{ Str::plural('like', $post->likes->count()) }}</span>
                         </div>
